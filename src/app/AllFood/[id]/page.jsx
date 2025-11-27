@@ -1,6 +1,6 @@
 
 
-import Image from "next/image";
+// import Image from "next/image";
 
 // Server-side data fetch using fetch()
 async function getFood(id) {
@@ -16,20 +16,22 @@ async function getFood(id) {
 }
 
 const FoodDetailsPage = async ({ params }) => {
-  const { id } = params; // dynamic route
+  const { id } = await params; // dynamic route
   const food = await getFood(id);
+  console.log(food);
+  
 
   return (
     <div className="max-w-4xl mx-auto px-5 mt-10 bg-white rounded-xl shadow-lg p-6">
       <div className="flex flex-col md:flex-row gap-6">
         {/* Food Image */}
-        <div className="md:w-1/2">
-          <Image
-            src={food.image || "/placeholder.png"}
+        <div>
+          <img
+            src={food?.image}
             alt={food.title}
             width={500}
             height={500}
-            className="rounded-xl object-cover w-full h-full"
+            className="rounded-xl object-cover"
           />
         </div>
 

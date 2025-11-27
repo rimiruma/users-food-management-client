@@ -1,9 +1,22 @@
 "use client";
 
+import useAuth from "@/hooks/useAuth";
+import { AuthContext } from "@/provider/AuthProvider";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+
 import Swal from "sweetalert2";
 
 const AddFoodPage = () => {
+  const {user} = useAuth(AuthContext);
+  // console.log(user);
+
+  const router = useRouter();
+
+  if(!user){
+    router.push("/login");
+  }
+  
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -63,7 +76,8 @@ const AddFoodPage = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+    <div className="bg-gradient-to-b from-[#d4f8e8] to-[#f3fff7]">
+    <div className="max-w-3xl mx-auto p-6 text-white shadow-lg rounded-lg">
       <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
         Add New Food
       </h2>
@@ -77,7 +91,7 @@ const AddFoodPage = () => {
             value={formData.title}
             onChange={handleChange}
             placeholder="Enter food title"
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
+            className="w-full text-black mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
           />
         </div>
 
@@ -89,7 +103,7 @@ const AddFoodPage = () => {
             onChange={handleChange}
             rows="3"
             placeholder="Enter food description"
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
+            className="w-full text-black mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
           ></textarea>
         </div>
 
@@ -101,7 +115,7 @@ const AddFoodPage = () => {
             value={formData.price}
             onChange={handleChange}
             placeholder="Enter price"
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
+            className="w-full text-black mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
           />
         </div>
 
@@ -111,9 +125,9 @@ const AddFoodPage = () => {
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
+            className="w-full text-black mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
           >
-            <option value="">Select category</option>
+            <option className="" value="">Select category</option>
             <option>Apple</option>
             <option>Drinks</option>
             <option>Dessert</option>
@@ -130,7 +144,7 @@ const AddFoodPage = () => {
             value={formData.location}
             onChange={handleChange}
             placeholder="Enter location"
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
+            className="w-full text-black mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
           />
         </div>
 
@@ -141,7 +155,7 @@ const AddFoodPage = () => {
             name="date"
             value={formData.date}
             onChange={handleChange}
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
+            className="w-full text-black mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
           />
         </div>
 
@@ -151,7 +165,7 @@ const AddFoodPage = () => {
             name="priority"
             value={formData.priority}
             onChange={handleChange}
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
+            className="w-full text-black mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
           >
             <option>Normal</option>
             <option>Medium</option>
@@ -165,7 +179,7 @@ const AddFoodPage = () => {
             type="email"
             value={formData.email}
             readOnly
-            className="w-full mt-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg cursor-not-allowed"
+            className="w-full text-black mt-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg cursor-not-allowed"
           />
         </div>
 
@@ -175,7 +189,7 @@ const AddFoodPage = () => {
             type="text"
             value={formData.name}
             readOnly
-            className="w-full mt-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg cursor-not-allowed"
+            className="w-full text-black mt-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg cursor-not-allowed"
           />
         </div>
 
@@ -187,17 +201,18 @@ const AddFoodPage = () => {
             value={formData.image}
             onChange={handleChange}
             placeholder="Enter image URL"
-            className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
+            className="w-full text-black mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:border-blue-400"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full cursor-pointer py-3 mt-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+          className="w-full bg-green-300 cursor-pointer py-3 mt-4 text-black font-semibold rounded-lg transition"
         >
           Add
         </button>
       </form>
+    </div>
     </div>
   );
 };

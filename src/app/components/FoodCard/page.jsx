@@ -36,7 +36,7 @@ const FoodCardPage = ({ food }) => {
         </p>
 
         <Link
-          href={`/foods/${food._id}`}
+          href={`/AllFood/${food._id}`}
           className="block w-full mt-2 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-xl font-medium text-center"
         >
           View Details

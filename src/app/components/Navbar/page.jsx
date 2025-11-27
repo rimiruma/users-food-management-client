@@ -36,6 +36,7 @@ const NavbarPage = () => {
           <li><Link href="/AddFood">Add Food</Link></li>
           <li><Link href="/AllFood">All Food</Link></li>
           <li><Link href="/AboutUs">About Us</Link></li>
+          <li><Link href="/ManageFood">Manage Food</Link></li>
         </ul>
       </div>
 
@@ -70,6 +71,7 @@ const NavbarPage = () => {
               <li><Link href="/AddFood">Add Product</Link></li>
               <li><Link href="/AllFood">All Food</Link></li>
               <li><Link href="/AboutUs">About Us</Link></li>
+              <li><Link href="/ManageFood">Manage Food</Link></li>
 
               <li><button onClick={handleLogout}>Logout</button></li>
             </ul>
