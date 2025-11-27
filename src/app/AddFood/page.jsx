@@ -39,7 +39,7 @@ const AddFoodPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/foods", {
+      const response = await fetch("https://users-management-food-server.vercel.app/foods", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

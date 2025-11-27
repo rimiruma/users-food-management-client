@@ -4,7 +4,7 @@
 
 // Server-side data fetch using fetch()
 async function getFood(id) {
-  const res = await fetch(`http://localhost:3000/foods/${id}`, {
+  const res = await fetch(`https://users-management-food-server.vercel.app/foods/${id}`, {
     cache: "no-store", // always get fresh data
   });
 

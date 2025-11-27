@@ -61,7 +61,7 @@ const RegisterPage = () => {
             };
 
             // Save only Google users to MongoDB
-            await fetch("http://localhost:3000/users", {
+            await fetch("https://users-management-food-server.vercel.app/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newUser),

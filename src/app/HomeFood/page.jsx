@@ -4,7 +4,7 @@ import FoodCardPage from "../components/FoodCard/page";
 
 
 async function getFoods() {
-  const res = await fetch("http://localhost:3000/foods", {
+  const res = await fetch("https://users-management-food-server.vercel.app/foods", {
     cache: "no-store",
   });
   return res.json();

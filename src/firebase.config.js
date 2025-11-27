@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDePtpahU2ZisnlDKebRWdB7Y0w5eHLAIA",
-  authDomain: "food-create-dcbed.firebaseapp.com",
-  projectId: "food-create-dcbed",
-  storageBucket: "food-create-dcbed.firebasestorage.app",
-  messagingSenderId: "363367831952",
-  appId: "1:363367831952:web:3ae98c267b36662b25fb15"
+  apiKey: process.env.NEXT_PUBLIC_apiKey,
+  authDomain: process.env.NEXT_PUBLIC_authDomain,
+  projectId: process.env.NEXT_PUBLIC_projectId,
+  storageBucket: process.env.NEXT_PUBLIC_storageBucket,
+  messagingSenderId: process.env.NEXT_PUBLIC_messagingSenderId,
+  appId: process.env.NEXT_PUBLIC_appId
 };
 
 // Initialize Firebase
