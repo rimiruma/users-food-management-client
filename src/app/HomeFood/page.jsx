@@ -1,6 +1,6 @@
 
 
-import FoodCardPage from "../components/FoodCard/page";
+import FoodCardPage from "../components/FoodCardPage";
 
 
 async function getFoods() {

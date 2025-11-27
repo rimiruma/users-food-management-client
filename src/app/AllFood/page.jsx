@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import FoodCardPage from "../components/FoodCard/page";
+import FoodCardPage from "../components/FoodCardPage";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
